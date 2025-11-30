@@ -4,7 +4,7 @@ Sistema para gerenciar clientes, dependentes, acomodações e hospedagens em um 
 
 ---
 
-## Arquitetura
+## 🏗️ Arquitetura
 
 ```
 Atlantis/
@@ -17,86 +17,102 @@ Cada backend possui `.env` para configuração do MySQL e cria automaticamente a
 
 ---
 
-## Banco de Dados
+## 💾 Banco de Dados
 
-* **Principais tabelas:**
+**Principais tabelas:**
+- `titulares`
+- `dependentes`
+- `hospedagens`
 
-  * `titulares`
-  * `dependentes`
-  * `hospedagens`
-* **View:** `clientes` (titulares + dependentes)
-
----
-
-## Endpoints Principais
-
-**Clientes:**
-
-* `GET /titulares`
-* `GET /dependentes`
-* `GET /clientes`
-* `POST /clientes`
-* `PUT /clientes`
-* `DELETE /clientes?id={id}`
-
-**Hospedagens/Acomodações:**
-
-* `GET /acomodacoes`
-* `GET /hospedagens`
-* `POST /hospedagens`
-* `PUT /hospedagens`
-* `DELETE /hospedagens?id={id}`
+**View:** `clientes` (titulares + dependentes)
 
 ---
 
-## Como rodar
+## 🔌 Endpoints Principais
 
-Instalar dependências:
+### Clientes (porta 3001)
+- `GET /titulares`
+- `GET /dependentes`
+- `GET /clientes`
+- `POST /clientes`
+- `PUT /clientes`
+- `DELETE /clientes?id={id}`
+
+### Hospedagens/Acomodações (porta 3002)
+- `GET /acomodacoes`
+- `GET /hospedagens`
+- `POST /hospedagens`
+- `PUT /hospedagens`
+- `DELETE /hospedagens?id={id}`
+
+---
+
+## 🚀 Como Rodar
+
+### 1. Criar Banco de Dados
+
+```sql
+CREATE DATABASE atlantis;
+```
+
+### 2. Instalar Dependências
 
 ```bash
+# Em cada pasta (front, back-clientes, back-hospedagem-acomodacoes)
 npm install
 ```
 
-Executar frontend:
+### 3. Executar Servidores
 
+**Frontend:**
 ```bash
 cd front
 npm run dev
+# Acesse: http://localhost:5173
 ```
 
-Executar backend clientes:
-
+**Backend Clientes:**
 ```bash
 cd back-clientes
 npm run start:server
+# Servidor: http://localhost:3001
 ```
 
-Executar backend hospedagens:
-
+**Backend Hospedagens:**
 ```bash
 cd back-hospedagem-acomodacoes
 npm run start:server
+# Servidor: http://localhost:3002
 ```
 
 ---
 
-## Observações
-* Banco configurável via `.env`.
+## 🛠️ Tecnologias
 
-Resumo das Tecnologias:
-React 19.2.0
-Vite 7.2.2
-TypeScript 5.9.3
-TailwindCSS 4.1.17
-React Router DOM 7.9.6
-React Icons 5.5.0
+### Frontend
+- React 19.2.0
+- Vite 7.2.2
+- TypeScript 5.9.3
+- TailwindCSS 4.1.17
+- React Router DOM 7.9.6
+- React Icons 5.5.0
 
-Node.js 22+
-TypeScript 5.9.3
-ts-node 10.9.2
-MySQL2 3.15.3
-dotenv 17.2.3
-Banco de Dados
-MySQL 8.0+
-Mesmo banco (atlantis) para ambos os backends
-Tabelas separadas por domínio
+### Backend
+- Node.js 22+
+- TypeScript 5.9.3
+- ts-node 10.9.2
+- MySQL2 3.15.3
+- dotenv 17.2.3
+
+### Banco de Dados
+- MySQL 8.0+
+- Mesmo banco (`atlantis`) para ambos os backends
+- Tabelas separadas por domínio
+
+---
+
+## 📝 Observações
+
+- Banco configurável via `.env`
+- Tabelas criadas automaticamente ao iniciar os backends
+- Frontend e backends devem rodar simultaneamente
