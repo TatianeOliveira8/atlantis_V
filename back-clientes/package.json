@@ -1,0 +1,17 @@
+{
+  "scripts": {
+    "start:server": "ts-node src/ts/simple_server.ts"
+  },
+  "dependencies": {
+    "@types/node": "^18.0.0",
+    "@types/prompt-sync": "^4.1.1",
+    "@types/sqlite3": "^3.1.11",
+    "dotenv": "^17.2.3",
+    "mysql2": "^3.15.3",
+    "prompt-sync": "^4.2.0"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}
